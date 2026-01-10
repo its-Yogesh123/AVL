@@ -3,16 +3,11 @@
 using namespace std;
 
 
-
-
-
 // 
 // 
 /* ************************ 🟢 General Functionality Start  🟢 ***************************** */
 // 
 // 
-
-
 
 
 int AVLTree::size(){
@@ -68,8 +63,8 @@ void AVLTree::insert(int n){
 Node* AVLTree::searchUtil(Node* root,int n){
     if(!root)return root;
     else if(root->data == n)return root;
-    else if(n < root->data)return AVLTree::searchUtil(root->left,n);
-    else return AVLTree::searchUtil(root->right,n);
+    else if(n < root->data)return this->searchUtil(root->left,n);
+    else return this->searchUtil(root->right,n);
 }
 
 // ---- public search API method
@@ -101,47 +96,44 @@ Node* AVLTree::getInorderPredecessor(Node* root,Node** replacement){
         return root->left;
     };
     root->right =this->getInorderPredecessor(root->right,replacement);
-    this->update_height(this->root);
-    root = this->balance(this->root);
-    this->update_height(this->root);
+    this->update_height(root);
+    root = this->balance(root);
+    this->update_height(root);
     return root;
 }
 
 Node* AVLTree::removeUtil(Node* root,int n){
-   
-    if(!this->root)return nullptr;
+    if(!root)return nullptr;
     else if(root->data == n){
-        if(!this->root->left && !this->root->right){
+        if(!root->left && !root->right){
             return nullptr;
         }
-        else if(!this->root->left){
-            return this->root->right;
+        else if(!root->left){
+            return root->right;
         }
-        else if(!this->root->right){
-            return this->root->left;
+        else if(!root->right){
+            return root->left;
         }
         else{
-            Node** replacement;
-            root->left = getInorderPredecessor(root->left,replacement);
-            (*replacement)->left = root->left;
-            (*replacement)->right = root->right;
-            this->update_height(*replacement);
-            *replacement = this->balance(*replacement);
-            this->update_height(*replacement);
-            return *replacement;
+            Node* replacement=nullptr;
+            root->left = getInorderPredecessor(root->left,&replacement);
+            replacement->left = root->left;
+            replacement->right = root->right;
+            root = replacement;
         }
     }
-    else if(n < root->data)this->root->left = this->removeUtil(this->root->left,n);
-    else {this->root->right = this->removeUtil(this->root->right,n);}
-    this->update_height(this->root);
-    root = this->balance(this->root);
-    this->update_height(this->root);
+    else if(n < root->data)root->left = removeUtil(root->left,n);
+    else root->right = this->removeUtil(root->right,n);
+    this->update_height(root);
+    root = this->balance(root);
+    this->update_height(root);
     return root;
 }
 
 // ---- public search API method
 void AVLTree::remove(int n){
-    root =  this->removeUtil(this->root,n);
+    this->root =  this->removeUtil(this->root,n);
+    this->size_--;
 }
 
 
