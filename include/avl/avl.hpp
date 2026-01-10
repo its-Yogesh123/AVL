@@ -1,16 +1,16 @@
 #pragma once
 #include <iostream>
 #include <vector>
-
+using namespace std;
 class Node{
     public:
     int data;
     int height;
     Node* left;
     Node* right;
-    Node(){};
-    Node(int n){};
-    ~Node(){};
+    Node();
+    Node(int n);
+    ~Node();
 };
 
 class AVLTree{
@@ -25,8 +25,11 @@ class AVLTree{
         Node* left_rotate(Node*);
         Node* right_rotate(Node*);
         Node* balance(Node*);
-        Node* insertUtil(Node* ,int n);
+        Node* insertUtil(Node* ,int);
         Node* searchUtil(Node*, int);
+        Node* removeUtil(Node*,int);
+        Node* getInorderPredecessor(Node*,Node**);
+        void printUtil(Node*);
     public:
         AVLTree();
         ~AVLTree();
@@ -35,12 +38,13 @@ class AVLTree{
         bool isEmpty();
         int tree_height();
         // -- standard functions
-        void insert(int n);
-        void remove();
-        bool search(Node*, int);
+        void insert(int);
+        void remove(int);
+        bool search(int);
         // traversal
         vector<int> inorder();
         vector<int> preorder();
         vector<int> postorder();
         void showTree();
+        void print();
 };

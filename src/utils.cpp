@@ -10,8 +10,10 @@ Node::Node(){
     this->height =1;
 }
 Node::Node(int n){
-    Node();
-    this->data = n;
+    this->left=nullptr;
+    this->right=nullptr;
+    this->data =n;
+    this->height =1;
 }
 Node::~Node(){}
 
@@ -31,7 +33,7 @@ int AVLTree::height(Node* root){
 }
 void AVLTree::update_height(Node* root){
     if(!root)return;
-    root->height = (height(root->left),height(root->right))+1;
+    root->height = max(height(root->left),height(root->right))+1;
 }
 bool AVLTree::is_left(Node* root){
     if(!root)return false;

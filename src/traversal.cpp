@@ -8,7 +8,15 @@ using namespace std;
 //
 
 
-
+void AVLTree::printUtil(Node* root){
+    if(!root)return;
+    this->printUtil(root->left);
+    cout<<root->data<<" "<<root->height<<"\n";
+    this->printUtil(root->right);
+}
+void AVLTree::print(){
+    this->printUtil(this->root);
+}
 
 
 //
