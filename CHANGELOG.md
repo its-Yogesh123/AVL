@@ -7,14 +7,19 @@ and this project adheres to **Semantic Versioning (SemVer)**.
 
 ---
 
-## [2.1.0] - 10 Jan 2026
-### Added
-- Search Feature
-- size() method
-- isEmpty() method
+## [3.0.0] (Recommended)- 11 Jan 2026
 
-### Fixed
-- Major Insertion Bug
+- Fully Functional AVL Tree API
+- Added showTree() method
+- Update stuffs
+
+---
+
+## [2.2.0] - 10 Jan 2026
+
+- Added Inorder
+- Added Preorder
+- Added PostOrder
 
 ---
 

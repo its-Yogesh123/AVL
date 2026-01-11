@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![C++](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://en.cppreference.com/w/cpp/17)
-[![Version](https://img.shields.io/badge/version-2.2.0-green.svg)](#)
+[![Version](https://img.shields.io/badge/version-3.0.0-green.svg)](#)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)](#building)
 [![Compiler](https://img.shields.io/badge/compiler-GCC%20%7C%20Clang%20%7C%20MSVC-blue.svg)](#building)
 
@@ -110,7 +110,6 @@ It provides **clean abstractions, self-balancing guarantees, predictable perform
 ---
 ## 🎯 Upcoming Features
 
-- 🔮 Proper Folder Structure
 - 🔮 Memory Management
 - 🔮 Exception Handling
 - 🔮 Generalization (like STL)
