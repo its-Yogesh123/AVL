@@ -30,6 +30,9 @@ class AVLTree{
         Node* removeUtil(Node*,int);
         Node* getInorderPredecessor(Node*,Node**);
         void printUtil(Node*);
+        void inorderUtil(Node*,vector<int>&);
+        void preorderUtil(Node*,vector<int>&);
+        void postorderUtil(Node*,vector<int>&);
     public:
         AVLTree();
         ~AVLTree();

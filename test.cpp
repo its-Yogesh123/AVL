@@ -28,6 +28,11 @@ int main(){
             obj.print();
             cout<<"\n ----- Tree End ------"<<endl;
         }
+        else if(a == 5){
+            cout<<"\n ----- Inorder Begin ------\n";
+            for(int i:obj.inorder())cout<<i<<" ";
+            cout<<"\n ----- Inorder End ------"<<endl;
+        }
         else break;
         cout<<"\n---------"<<endl;
     }
