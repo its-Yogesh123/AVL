@@ -1,6 +1,33 @@
 #include <iostream>
+#include <queue>
 #include "avl/avl.hpp"
 using namespace std;
+
+//
+//
+/* *********************** 🟢 Development Section Start 🟢 ********************** */
+//
+//
+
+void AVLTree::printUtil(Node* root){
+    if(!root)return;
+    this->printUtil(root->left);
+    cout<<root->data<<" "<<root->height<<"\n";
+    this->printUtil(root->right);
+}
+void AVLTree::print(){
+    this->printUtil(this->root);
+}
+
+
+
+//
+//
+/* *********************** 🔴 Dev Section End 🔴 ********************** */
+//
+//
+
+
 //
 //
 /* *********************** 🟢 Inorder Traversal 🟢 ********************** */
@@ -20,25 +47,13 @@ vector<int> AVLTree::inorder(){
     return data;
 }
 
-
-
-
-void AVLTree::printUtil(Node* root){
-    if(!root)return;
-    this->printUtil(root->left);
-    cout<<root->data<<" "<<root->height<<"\n";
-    this->printUtil(root->right);
-}
-void AVLTree::print(){
-    this->printUtil(this->root);
-}
-
-
 //
 //
 /* *********************** 🔴 Inorder End 🔴 ********************** */
 //
 //
+
+
 //
 //
 /* *********************** 🟢 Preorder Traversal 🟢 ********************** */
@@ -63,6 +78,8 @@ vector<int> AVLTree::preorder(){
 /* *********************** 🔴 Inorder End 🔴 ********************** */
 //
 //
+
+
 //
 //
 /* *********************** 🟢 Postorder Traversal 🟢 ********************** */
@@ -88,4 +105,38 @@ vector<int> AVLTree::postorder(){
 //
 //
 
+
+//
+//
+/* *********************** 🟢 Showing Tree 🟢 ********************** */
+//
+//
+
+void AVLTree::showTree(){
+    queue<Node*> q1;
+    q1.push(this->root);
+    cout<<endl;
+    while(!q1.empty()){
+        int n = q1.size();
+        cout<<" | ";
+        while(n--){
+            Node* curr = q1.front();
+            q1.pop();
+            if(curr){
+                cout<<curr->data<<" | ";
+                q1.push(curr->left);
+                q1.push(curr->right);
+            }
+            else cout<<"- | ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
+//
+//
+/* *********************** 🔴 Show End 🔴 ********************** */
+//
+//
 

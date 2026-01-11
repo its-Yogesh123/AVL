@@ -33,6 +33,11 @@ int main(){
             for(int i:obj.inorder())cout<<i<<" ";
             cout<<"\n ----- Inorder End ------"<<endl;
         }
+        else if(a == 6){
+            cout<<"\n ----- Tree Begin ------\n";
+            obj.showTree();
+            cout<<"\n ----- Tree End ------"<<endl;
+        }
         else break;
         cout<<"\n---------"<<endl;
     }

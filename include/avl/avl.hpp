@@ -17,7 +17,6 @@ class AVLTree{
     private:
         int size_;
         Node* root;
-
         // methods
         int height(Node*);
         void update_height(Node*);
@@ -33,6 +32,7 @@ class AVLTree{
         void inorderUtil(Node*,vector<int>&);
         void preorderUtil(Node*,vector<int>&);
         void postorderUtil(Node*,vector<int>&);
+        void showTreeUtil(Node*);
     public:
         AVLTree();
         ~AVLTree();
@@ -49,5 +49,7 @@ class AVLTree{
         vector<int> preorder();
         vector<int> postorder();
         void showTree();
+
+        // Utils for development and testing
         void print();
 };
